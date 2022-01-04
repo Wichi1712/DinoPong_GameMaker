@@ -27,6 +27,7 @@
       <sprite>sprites\spr_rockyShock</sprite>
       <sprite>sprites\spr_rocky</sprite>
       <sprite>sprites\spr_turtleBall</sprite>
+      <sprite>sprites\spr_mask_collision</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">

@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_mask_collision</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -57,7 +57,11 @@ rotation = 3;
 /*Los movimientos solo se inician si el estado
   de balon es diferente de "stop".*/
 if (stateBall != "stop") {
-    image_angle +=rotation;
+    //image_angle +=rotation;
+    rotation +=dirX * 2;
+    
+    //Dibuja el efecto de polvo
+    effect_create_below( ef_smoke,x,y,0.4, c_white);
     
     //Rebote con la room
     //if (x &lt; 0) dirX = 4;//Rebota a la derecha
@@ -131,11 +135,55 @@ else dirX = 4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Rebote
-if (x &lt; o_dino.x) dirX = -4;else//Rebota a la izquierda
-if (x &gt; o_dino.x) dirX = 4;//Rebota a la derecha
+            <string>///Rebote -Cambio de direccion
+//if (x &lt; o_dino.x) dirX = -4;else//Rebota a la izquierda
+//if (x &gt; o_dino.x) dirX = 4;//Rebota a la derecha
 //if (y &lt; o_dino.y) dirY = -4;//Rebota hacia abajo
 //if (y &gt; o_dino.y) dirY = 4;//Rebota hacia arriba
+
+if (dirX &gt; 0)dirX = -4 else//Rebota a la izquierda
+if (dirX &lt; 0)dirX = 4//Rebota a la derecha
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Mascara de colision y rotacion de imagen
+/*      DIBUJANDO SPRITE
+*Dibuja el sprite que se mostrara en pantalla.
+*Solo rota el sprite asignado.
+*la mascara de colision queda fija.
+*No es necesario utilizar draw_self ya que nosotros le indicamos
+ que imagen mostrar.
+*/
+
+//draw_self();
+
+//Obtenemos la mascara de colision para mostrarlo
+//draw_sprite_ext(object_get_mask(object_index),0,x,y,1,1,image_angle,c_white,1);
+
+//Dibuja sprite para mostrarlo en pantalla
+draw_sprite_ext(sprite_index,image_index,x,y,1,1,rotation,image_blend,image_alpha);
+
+//Dibuja rectangulo para mostrar las dimensiones del sprite
+//draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,true);
 </string>
           </argument>
         </arguments>
