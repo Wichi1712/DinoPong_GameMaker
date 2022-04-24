@@ -35,7 +35,7 @@ global.life = 3;
 global.shoots = 3;
 
 //Variables para game over
-option = 1;
+option = 1;//&lt;&lt; 1=Reload  2=Exit
 posY = 290;//Posicion para game over
 selectorY = posY;
 
@@ -83,7 +83,7 @@ if( stateGame == "play"){
     //Crea dinos
     if (instance_number( o_dino) &lt; numberDinos){
         //instance_create(random_range(100, room_width-100),-80,o_dino);
-        instance_create(arrPos[randPos],dinoPosY,o_dino);
+        instance_create(arrPos[randPos], dinoPosY,o_dino);
     }
     
     //Contador de disparos

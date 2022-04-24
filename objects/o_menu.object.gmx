@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_caption = "DinoPong";
+            <string>///Tittle &amp; fullscreen
+room_caption = "DinoPong";
 window_set_fullscreen(true);
 </string>
           </argument>
@@ -73,7 +74,8 @@ if( keyboard_check( vk_anykey)) room_goto_next();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite( spr_title,0, room_width/2, 100);
+            <string>///Text menu
+draw_sprite( spr_title,0, room_width/2, 100);
 
 draw_set_halign( fa_center)
 draw_set_font(fnt_title);

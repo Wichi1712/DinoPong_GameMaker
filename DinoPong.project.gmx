@@ -6,6 +6,7 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\SHOOT</sound>
+    <sound>sound\dinoShock</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_solido</sprite>

@@ -126,7 +126,7 @@ if (y &gt; room_height + sprite_height + 40){
           <argument>
             <kind>1</kind>
             <string>///Mantenemos la velocidad al minimo
-velocidad = 1;
+//velocidad = 1;
 </string>
           </argument>
         </arguments>
@@ -158,12 +158,17 @@ if(o_turtleBall.stateBall != "stop"){
     
     //Suma puntos al score
     score +=valorDino;
+    effect_create_above(ef_ring,x,y,3, c_yellow);
+    effect_create_above( ef_smoke, x,y, 5, c_yellow );
     
     //Enviamos a la parte inferior de la pantalla
     //para que vuelva a iniciar su posicion
     y = room_height + sprite_height + 40;
     //scr_inicio();
 }
+
+//sound_play( dinoShock);
+if !audio_is_playing( dinoShock) audio_play_sound( dinoShock ,1,0);
 </string>
           </argument>
         </arguments>
