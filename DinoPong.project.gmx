@@ -7,6 +7,7 @@
   <sounds name="sound">
     <sound>sound\SHOOT</sound>
     <sound>sound\dinoShock</sound>
+    <sound>sound\dinoShock2</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_solido</sprite>
