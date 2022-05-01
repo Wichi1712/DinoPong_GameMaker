@@ -8,6 +8,8 @@
     <sound>sound\SHOOT</sound>
     <sound>sound\dinoShock</sound>
     <sound>sound\dinoShock2</sound>
+    <sound>sound\DinoPongSong2</sound>
+    <sound>sound\IntroDinoPong</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_solido</sprite>
@@ -30,6 +32,7 @@
       <sprite>sprites\spr_rocky</sprite>
       <sprite>sprites\spr_turtleBall</sprite>
       <sprite>sprites\spr_mask_collision</sprite>
+      <sprite>sprites\spr_Heart</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">

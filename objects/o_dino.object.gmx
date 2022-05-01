@@ -59,19 +59,19 @@ switch (sprite_index)
 {
     case spr_dino:
         velocidad = 1;
-        valorDino = 1;
+        valorDino = 10;
     break;
     case spr_raptor:
-        velocidad = 2;
-        valorDino = 2;
+        velocidad = 3;
+        valorDino = 20;
     break;
     case spr_rino:
         velocidad = 2;
-        valorDino = 2;
+        valorDino = 20;
     break;
     case spr_badTurtle:
         velocidad = 1;
-        valorDino = 3;
+        valorDino = 50;
     break;
     //default: STATEMENT;
 }
@@ -127,6 +127,14 @@ if (y &gt; room_height + sprite_height + 40){
             <kind>1</kind>
             <string>///Mantenemos la velocidad al minimo
 //velocidad = 1;
+/*
+if (place_empty(x + 64, y )) {x = o_control.arrPos[o_control.randPos];}
+else{
+    if (place_empty(x - 64, y )) { x = o_control.arrPos[o_control.randPos];}
+}
+
+*/
+
 </string>
           </argument>
         </arguments>
@@ -149,7 +157,7 @@ if (y &gt; room_height + sprite_height + 40){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Reposiciona en el eje Y
+            <string>///Reposiciona en el eje, incrementa valor de dinos Y reproduce sonido
 
 if(o_turtleBall.stateBall != "stop"){
     //Dibuja puntos
@@ -157,39 +165,18 @@ if(o_turtleBall.stateBall != "stop"){
     puntos.txt = valorDino;
     
     //Suma puntos al score
+    o_control.counterDinos++;
     score +=valorDino;
     effect_create_above(ef_ring,x,y,3, c_yellow);
     effect_create_above( ef_smoke, x,y, 5, c_yellow );
     
     //Enviamos a la parte inferior de la pantalla
     //para que vuelva a iniciar su posicion
-    y = room_height + sprite_height + 40;
-    //scr_inicio();
+    //y = room_height + sprite_height + 40;
+    scr_inicio();
+    audio_play_sound( dinoShock2 ,1,false);
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Sonido de colision
-//sound_play( dinoShock);
-if !audio_is_playing( dinoShock2) audio_play_sound( dinoShock2 ,1,0);
 </string>
           </argument>
         </arguments>

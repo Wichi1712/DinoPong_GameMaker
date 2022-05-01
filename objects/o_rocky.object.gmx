@@ -237,12 +237,18 @@ if ( statePlayer != "phantom"){
     statePlayer = "hurt";//daño
     global.life--;
     //image_index = spr_rockyShock;
-    instance_create(x,y, o_rockyShock);
+    
+    //El sonido de daño lo reproduce o_rockyShock
+    if !instance_exists( o_rockyShock){
+        instance_create(x,y, o_rockyShock);
+    }
 }
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="4" ename="o_turtleBall">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -260,14 +266,18 @@ if ( statePlayer != "phantom"){
           <argument>
             <kind>1</kind>
             <string>///Sonido de colision
-//sound_play( dinoShock);
-if !audio_is_playing( dinoShock) audio_play_sound( dinoShock ,1,0);
+/*NOTA:
+    Primero se debe reproducir el sonido antes de
+    cambiar el estado al ballon
+*/
+if ( o_turtleBall.stateBall == "move"){
+    audio_play_sound( SHOOT ,1,0);
+}
+
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="4" ename="o_turtleBall">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -294,32 +304,6 @@ esto permite que al momento de patear el
 ballon nuevamente, este se dirija hacia arriba
 */
 o_turtleBall.dirY = 4;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Sonido de colision
-//sound_play( dinoShock);
-//if ( chargerPlayer == false){
-//if !audio_is_playing( SHOOT ) audio_play_sound( SHOOT ,1,0);
-//}
-
 </string>
           </argument>
         </arguments>

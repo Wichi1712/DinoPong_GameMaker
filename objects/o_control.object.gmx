@@ -30,6 +30,7 @@ stateGame = "play";
 score = 0;
 levelGame = 1;
 numberDinos = 2;
+counterDinos = 0
 
 global.life = 3;
 global.shoots = 3;
@@ -39,7 +40,7 @@ option = 1;//&lt;&lt; 1=Reload  2=Exit
 posY = 290;//Posicion para game over
 selectorY = posY;
 
-//Array de posiciones para dinos
+//Array de posiciones para dinos en el eje X
 arrPos[0] = 128;//+96
 arrPos[1] = 224;//+64
 arrPos[2] = 288;//+64
@@ -47,6 +48,9 @@ arrPos[3] = 352;//+96
 arrPos[4] = 448;
 
 dinoPosY = choose(-80,-180,-280,-380);
+
+//audio_play_sound( DinoPongSong,0,true);
+audio_sound_gain(audio_play_sound( DinoPongSong2,1,true),1,0)
 </string>
           </argument>
         </arguments>
@@ -132,6 +136,7 @@ if( global.life &lt;=0 || global.shoots == 0){
     if( keyboard_check_pressed( vk_enter)){
         if( option == 1){
             game_restart();
+            audio_stop_all();
         }
         else{
             game_end();
@@ -159,22 +164,50 @@ if( global.life &lt;=0 || global.shoots == 0){
           <argument>
             <kind>1</kind>
             <string>///Control level
-if(levelGame ==1 &amp;&amp; score &gt;= 10){
+if(levelGame ==1 &amp;&amp; counterDinos &gt;= 10){
     levelGame++;
     numberDinos++;
 }else
-if(levelGame ==2 &amp;&amp; score &gt;= 20){
+if(levelGame ==2 &amp;&amp; counterDinos &gt;= 20){
     levelGame++;
     numberDinos++;
 }else
-if(levelGame ==3 &amp;&amp; score &gt;= 30){
+if(levelGame ==3 &amp;&amp; counterDinos &gt;= 30){
     levelGame++;
     numberDinos++;
 }else
-if(levelGame ==4 &amp;&amp; score &gt;= 40){
+if(levelGame ==4 &amp;&amp; counterDinos &gt;= 40){
     levelGame++;
     numberDinos++;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reproduce sonido de fondo
+//if (!audio_music_is_playing()){
+//    audio_play_music(DinoPongSong,true );
+//}
+
+//if !audio_is_playing(DinoPongSong2){
+ //   audio_sound_gain(audio_play_sound( DinoPongSong2,0,true),1,0)
+//}
 </string>
           </argument>
         </arguments>
@@ -201,15 +234,28 @@ if(levelGame ==4 &amp;&amp; score &gt;= 40){
 draw_set_font(f_game);
 draw_set_halign( fa_left)
 draw_set_color(c_orange );
-draw_text(10,20,"Life " + string( global.life));
+draw_sprite( spr_Heart ,2, 20, 20);
+draw_text(40,20,"x " + string( global.life));
 draw_text(10,40,"Level " + string(levelGame));
 
-draw_sprite( spr_score,0, room_width/2-10, 30);
+
+
+draw_sprite( spr_score,1, room_width/2-10, 30);
+draw_set_color( c_white);
 draw_text( room_width/2 + 45 ,20, string(score));
 
 draw_sprite( spr_turtleBall,0, room_width - 70, 30);
+draw_set_color( c_orange);
 draw_text( room_width - 50 ,20, "x "+ string(global.shoots));
 
+
+//TEST
+/*
+if instance_exists( o_rocky)
+    draw_text(20,80, "Estado ball: "+ o_turtleBall.stateBall);
+    draw_text(20,100, "Numero de instancias: "+ string( instance_number( o_rockyShock)));
+    draw_text(10,60,"Dinos " + string(counterDinos));
+*/
 </string>
           </argument>
         </arguments>

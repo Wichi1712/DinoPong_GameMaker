@@ -28,6 +28,8 @@
             <string>///Inicia alarma
 alarm[0] = room_speed;
 image_speed = 0.2;
+//if (!audio_is_playing( dinoShock))
+audio_play_sound( dinoShock ,1, false);
 </string>
           </argument>
         </arguments>
