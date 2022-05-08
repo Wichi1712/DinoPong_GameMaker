@@ -33,6 +33,8 @@
       <sprite>sprites\spr_turtleBall</sprite>
       <sprite>sprites\spr_mask_collision</sprite>
       <sprite>sprites\spr_Heart</sprite>
+      <sprite>sprites\spr_Rocky_menu</sprite>
+      <sprite>sprites\spr_Rocky_icon</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">

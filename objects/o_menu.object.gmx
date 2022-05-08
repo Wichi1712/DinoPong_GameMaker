@@ -100,6 +100,7 @@ if( keyboard_check( vk_anykey)){
             <kind>1</kind>
             <string>///Text menu
 draw_sprite( spr_title,0, room_width/2, 100);
+draw_sprite( spr_Rocky_menu,0, room_width/2, 220);
 
 draw_set_halign( fa_center)
 draw_set_font(fnt_title);

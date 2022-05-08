@@ -234,7 +234,7 @@ if(levelGame ==4 &amp;&amp; counterDinos &gt;= 40){
 draw_set_font(f_game);
 draw_set_halign( fa_left)
 draw_set_color(c_orange );
-draw_sprite( spr_Heart ,2, 20, 20);
+draw_sprite( spr_Rocky_icon ,0, 20, 20);
 draw_text(40,20,"x " + string( global.life));
 draw_text(10,40,"Level " + string(levelGame));
 
