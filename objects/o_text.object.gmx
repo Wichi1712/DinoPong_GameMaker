@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>txt = "";
 alarm[0] = room_speed * 5;
+
 </string>
           </argument>
         </arguments>
@@ -74,9 +75,11 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Puntos
+//draw_sprite(spr_shockDino,0,x,y );
 draw_set_font(f_game);
 draw_set_color(c_white );
 draw_text(x,y,txt);
+
 </string>
           </argument>
         </arguments>

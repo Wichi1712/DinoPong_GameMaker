@@ -32,11 +32,12 @@ levelGame = 1;
 numberDinos = 2;
 counterDinos = 0
 
+global.lostDinos = 100;
 global.life = 3;
 global.shoots = 3;
 
 //Variables para game over
-option = 1;//&lt;&lt; 1=Reload  2=Exit
+option = 1;//&lt;&lt;== 1=Reload  2=Exit
 posY = 290;//Posicion para game over
 selectorY = posY;
 
@@ -117,8 +118,14 @@ if( stateGame == "play"){
           <argument>
             <kind>1</kind>
             <string>///Game Over
-if( global.life &lt;=0 || global.shoots == 0){
+if( global.life &lt;=0 || global.shoots == 0 || global.lostDinos &gt;= 500){
     stateGame = "gameOver";
+    //audio_sound_gain(audio_play_sound( overDino,1,false),1,0)
+    if !audio_is_playing( overDino){
+        audio_stop_all();
+        audio_play_sound( overDino,1,false);
+    }
+    global.lostDinos = 500;//mantiene el numero maximo de dinos perdidos
     with( o_rocky) instance_destroy();
     with( o_turtleBall) instance_destroy();
     with( o_pause) instance_destroy();
@@ -240,15 +247,20 @@ draw_text(10,40,"Level " + string(levelGame));
 
 
 
-draw_sprite( spr_score,1, room_width/2-10, 30);
-draw_set_color( c_white);
+draw_sprite( spr_score,2, room_width/2-10, 30);
+draw_set_color( c_black);
 draw_text( room_width/2 + 45 ,20, string(score));
 
 draw_sprite( spr_turtleBall,0, room_width - 70, 30);
 draw_set_color( c_orange);
 draw_text( room_width - 50 ,20, "x "+ string(global.shoots));
 
-
+//Barra control de dinos que pasan el borde inferior
+draw_rectangle(100,560,500,580,1);
+draw_rectangle_color(100,560,global.lostDinos,580,c_yellow,c_yellow,c_red,c_red,0);
+draw_text( room_width/2 - 50, 560, "Level Dinos");
+draw_sprite(spr_home,0,500,560);
+draw_sprite( spr_dinoLevel,0,global.lostDinos,560);
 //TEST
 /*
 if instance_exists( o_rocky)

@@ -72,7 +72,7 @@ audio_play_sound( IntroDinoPong,1,0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Siguiente room
+            <string>///Next room
 if( keyboard_check( vk_anykey)){
     room_goto_next();
 }
@@ -99,8 +99,8 @@ if( keyboard_check( vk_anykey)){
           <argument>
             <kind>1</kind>
             <string>///Text menu
-draw_sprite( spr_title,0, room_width/2, 100);
-draw_sprite( spr_Rocky_menu,0, room_width/2, 220);
+draw_sprite( spr_title,0, room_width/2, 150);
+//draw_sprite( spr_Rocky_menu,0, room_width/2, 220);
 
 draw_set_halign( fa_center)
 draw_set_font(fnt_title);
@@ -109,7 +109,7 @@ draw_text( room_width/2, 300, "Press any button");
 
 
 draw_set_font( fnt_extras);
-draw_text( room_width/2, 350, "Developed by Wilfredo Chipana");
+draw_text( room_width/2, 200, "BY WILFREDO CHIPANA GONZALES");
 draw_text( room_width/2, 550, "WICHI 2020");
 </string>
           </argument>

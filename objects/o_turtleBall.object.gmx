@@ -86,8 +86,10 @@ else{
     y = o_rocky.y - 25;
     
     //Movimiento inicial en X
-    if( keyboard_check( vk_right)) dirX = 4;
-    if( keyboard_check( vk_left)) dirX = -4;
+    if( keyboard_check( vk_right)) dirX = 4;else
+    if( keyboard_check( vk_left)) dirX = -4;else{
+        dirX = 0;
+    }
 }
 </string>
           </argument>
@@ -113,6 +115,8 @@ else{
             <kind>1</kind>
             <string>if ( dirX == 4) dirX = -4
 else dirX = 4;
+
+audio_play_sound( dinoShock2 ,1,false);
 </string>
           </argument>
         </arguments>
@@ -141,8 +145,9 @@ else dirX = 4;
 //if (y &lt; o_dino.y) dirY = -4;//Rebota hacia abajo
 //if (y &gt; o_dino.y) dirY = 4;//Rebota hacia arriba
 
-if (dirX &gt; 0)dirX = -4 else//Rebota a la izquierda
-if (dirX &lt; 0)dirX = 4//Rebota a la derecha
+if (dirX &gt; 0){dirX = -4}else//Rebota a la izquierda
+if (dirX &lt; 0){dirX = 4}//Rebota a la derecha
+else {dirY = -4}
 </string>
           </argument>
         </arguments>

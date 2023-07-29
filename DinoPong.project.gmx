@@ -10,6 +10,7 @@
     <sound>sound\dinoShock2</sound>
     <sound>sound\DinoPongSong2</sound>
     <sound>sound\IntroDinoPong</sound>
+    <sound>sound\overDino</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_solido</sprite>
@@ -22,6 +23,7 @@
       <sprite>sprites\spr_dino</sprite>
       <sprite>sprites\spr_rino</sprite>
       <sprite>sprites\spr_badTurtle</sprite>
+      <sprite>sprites\spr_shockDino</sprite>
     </sprites>
     <sprites name="player">
       <sprite>sprites\spr_rockyStop</sprite>
@@ -35,6 +37,8 @@
       <sprite>sprites\spr_Heart</sprite>
       <sprite>sprites\spr_Rocky_menu</sprite>
       <sprite>sprites\spr_Rocky_icon</sprite>
+      <sprite>sprites\spr_home</sprite>
+      <sprite>sprites\spr_dinoLevel</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
